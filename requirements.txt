@@ -1,0 +1,9 @@
+# Editable Git install with no remote (bloodsword==0.0.1)
+build==0.7.0
+certifi==2021.10.8
+colorama==0.4.4
+packaging==21.3
+pep517==0.12.0
+pyparsing==3.0.6
+tomli==1.2.2
+wincertstore==0.2
