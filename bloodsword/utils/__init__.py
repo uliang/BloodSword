@@ -3,7 +3,7 @@ import random
 
 
 def roll_dice(string_form: str = '', *, n: int = 0,
-              d: int = 0, modifier: int = 0):
+              d: int = 0, modifier: int = 0) -> int:
     if not any((string_form, n, d, modifier)):
         raise ValueError("No dice specified.")
 
