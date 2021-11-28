@@ -10,6 +10,7 @@ class Armour:
     name: str
     damage_reduction: int
 
+    def init(self, instance: Storage, **kwargs):
         instance.store_item(self)
         setattr(instance, self.private_name, self)
 

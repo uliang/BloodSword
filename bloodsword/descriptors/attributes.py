@@ -11,6 +11,10 @@ class Attribute:
     min_value: int = 0
     rank_attributes: List[int] = field(default_factory=list)
 
+    def init(self, instance, **kwargs):
+        kwargs = dict(kwargs)
+        rank = kwargs.pop('rank')
+        value = self.rank_attributes[rank-2]
         setattr(instance, self.private_name, value)
         setattr(instance, self.initial_name, value)
 
