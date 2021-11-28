@@ -6,7 +6,7 @@ from ..protocols import DescriptorList
 
 @dataclass
 class Attribute:
-    verbose_name:str 
+    verbose_name: str
     has_max_value: bool = False
     min_value: int = 0
     rank_attributes: List[int] = field(default_factory=list)
