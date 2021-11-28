@@ -1,5 +1,7 @@
 import pytest
+from bloodsword.base import Equipable
 from bloodsword.characters import Sage, Warrior
+from bloodsword.descriptors.armour import Armour
 
 
 @pytest.fixture
@@ -71,3 +73,18 @@ def test_attribute_decrement_clips_at_zero(sage, warrior):
 
     warrior.endurance -= 20
     assert warrior.endurance == 0
+
+
+def test_item_stored(sage, warrior):
+    assert len(sage.items_carried) == len(
+        [i for i in vars(sage.__class__).values() if isinstance(i, Equipable)])
+    assert len(warrior.items_carried) == len(
+        [i for i in vars(warrior.__class__).values() if isinstance(i, Equipable)])
+
+
+def test_that_character_can_only_carry_one_piece_of_armour(warrior):
+    initial_no_items_carried = len(warrior.items_carried)
+    new_armour = Armour('ringmail', damage_reduction=2)
+    warrior.armour = new_armour
+    assert warrior.armour.damage_reduction == 2
+    assert len(warrior.items_carried) == initial_no_items_carried
