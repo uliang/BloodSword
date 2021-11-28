@@ -24,3 +24,6 @@ class Armour:
         setattr(instance, self.private_name, value)
         instance.remove_item(self)
         instance.store_item(value)
+
+    def __str__(self) -> str:
+        return ''

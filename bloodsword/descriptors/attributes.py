@@ -32,3 +32,5 @@ class Attribute:
             value = min(value, initial_value)
         setattr(instance, self.private_name, value)
 
+    def __str__(self) -> str:
+        return self.verbose_name
