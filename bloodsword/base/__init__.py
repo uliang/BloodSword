@@ -5,6 +5,11 @@ from bloodsword.descriptors.attributes import Attribute
 
 
 class Character(ABC):
+    """
+    Subclass Character to create playable character types. Each attribute
+    should be declared as a class variable with the Attribute descriptor.
+    """
+
     def __init__(self, name: str, fighting_prowess: int, psychic_ability: int, awareness: int, endurance: int):
         self.name = name
         self.fighting_prowess = fighting_prowess
