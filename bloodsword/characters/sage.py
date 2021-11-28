@@ -1,6 +1,9 @@
+from typing import ClassVar
+
 from ..descriptors.armour import Armour
 from ..descriptors.attributes import Attribute
-from ..base import Character
+from ..protocols import Descriptor
+from . import Character
 
 
 class Sage(Character):
