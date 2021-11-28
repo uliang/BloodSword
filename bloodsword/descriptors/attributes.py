@@ -1,5 +1,6 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum, auto
+from typing import List
 
 
 class AttrState(Enum):
@@ -11,6 +12,7 @@ class AttrState(Enum):
 class Attribute:
     has_max_value: bool = False
     min_value: int = 0
+    rank_attributes: List[int] = field(default_factory=list)
 
     def __set_name__(self, instance, name):
         self.private_name = '_' + name
@@ -32,3 +34,7 @@ class Attribute:
         elif attribute_state is AttrState.BOUNDED:
             initial_value = getattr(instance, self.initial_name)
             setattr(instance, self.private_name, min(initial_value, value))
+
+    def get_rank_attribute_value(self, rank:int)-> int: 
+        return self.rank_attributes[rank-2]
+
