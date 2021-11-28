@@ -4,12 +4,12 @@ from bloodsword.characters import Sage, Warrior
 
 @pytest.fixture
 def warrior():
-    return Warrior("Warrior", 8, 6, 6, 12)
+    return Warrior.from_rank("Warrior", 2)
 
 
 @pytest.fixture
 def sage():
-    return Sage("Sage", 7, 7, 6, 10)
+    return Sage.from_rank("Sage", 2)
 
 
 def test_character_initialization(warrior, sage):
