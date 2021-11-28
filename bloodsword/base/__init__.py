@@ -17,4 +17,4 @@ from bloodsword.descriptors.attributes import Attribute
         return cls(name, **kwargs)
 
     def __str__(self) -> str:
-        return f"Character(class:{self.name} Fighting Prowess={self.fighting_prowess} Psychic Ability={self.psychic_ability} Awareness={self.awareness} Endurance={self.endurance})"
+        return f"<Name:{self.name} Fighting Prowess={self.fighting_prowess} Psychic Ability={self.psychic_ability} Awareness={self.awareness} Endurance={self.endurance}>"
