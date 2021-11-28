@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from abc import ABC
 import typing
+from collections import deque
 
 
 @typing.runtime_checkable
@@ -31,12 +32,15 @@ class Character(ABC):
     should be declared as a class variable with the Attribute descriptor.
     """
 
-    def __init__(self, name: str, fighting_prowess: int, psychic_ability: int, awareness: int, endurance: int):
+    def __init__(self, name: str, **initial_attribute_values):
         self.name = name
-        self.fighting_prowess = fighting_prowess
-        self.psychic_ability = psychic_ability
-        self.awareness = awareness
-        self.endurance = endurance
+        self.items_carried = deque([], maxlen=10)
+
+        for name, var in vars(self.__class__).items():
+            if isinstance(var, Equipable):
+                var.equip_on(self)
+            if isinstance(var, Initializable):
+                var.initialize_with(self, initial_attribute_values[name])
 
     @classmethod
     def from_rank(cls, name: str, rank: int = 2) -> Character:
