@@ -10,7 +10,6 @@ class Armour:
     name: str
     damage_reduction: int
 
-    def equip_on(self, instance: Storage):
         instance.store_item(self)
         setattr(instance, self.private_name, self)
 

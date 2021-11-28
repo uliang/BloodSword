@@ -11,12 +11,8 @@ class Attribute:
     min_value: int = 0
     rank_attributes: List[int] = field(default_factory=list)
 
-    def initialize_with(self, instance, value):
         setattr(instance, self.private_name, value)
         setattr(instance, self.initial_name, value)
-
-    def get_initial_value(self, instance):
-        return self.verbose_name, getattr(instance, self.initial_name)
 
     def __set_name__(self, owner, name):
         self.private_name = '_' + name
@@ -32,5 +28,3 @@ class Attribute:
             value = min(value, initial_value)
         setattr(instance, self.private_name, value)
 
-    def get_rank_attribute_value(self, rank: int) -> int:
-        return self.rank_attributes[rank-2]
