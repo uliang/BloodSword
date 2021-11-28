@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+from abc import ABC
 from bloodsword.descriptors.attributes import Attribute
 
 
+class Character(ABC):
     def __init__(self, name: str, fighting_prowess: int, psychic_ability: int, awareness: int, endurance: int):
         self.name = name
         self.fighting_prowess = fighting_prowess
