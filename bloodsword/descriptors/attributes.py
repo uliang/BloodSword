@@ -18,9 +18,10 @@ class Attribute:
         setattr(instance, self.private_name, value)
         setattr(instance, self.initial_name, value)
 
-    def __set_name__(self, owner, name):
-        self.private_name = '_' + name
+    def __set_name__(self, owner: DescriptorList, name):
         self.initial_name = f'_initial_{name}_value'
+        self.private_name = f'_{name}'
+        owner.descriptors.append(self)
 
     def __get__(self, instance, type_=None):
         return getattr(instance, self.private_name)

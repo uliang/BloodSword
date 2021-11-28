@@ -14,8 +14,9 @@ class Armour:
         instance.store_item(self)
         setattr(instance, self.private_name, self)
 
-    def __set_name__(self, owner, name):
+    def __set_name__(self, owner: DescriptorList, name):
         self.private_name = f"_{name}"
+        owner.descriptors.append(self)
 
     def __get__(self, instance, type_=None):
         return getattr(instance, self.private_name)
