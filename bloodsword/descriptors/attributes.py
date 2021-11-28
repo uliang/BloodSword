@@ -8,6 +8,9 @@ class Attribute:
     min_value: int = 0
     rank_attributes: List[int] = field(default_factory=list)
 
+    def initialize_with(self, instance, value):
+        setattr(instance, self.private_name, value)
+        setattr(instance, self.initial_name, value)
     def __set_name__(self, owner, name):
         self.private_name = '_' + name
         self.initial_name = f'_initial_{name}_value'
