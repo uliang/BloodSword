@@ -48,5 +48,15 @@ class Character(ABC):
             rank) for k, v in cls.__dict__.items() if isinstance(v, Progressable)}
         return cls(name, **kwargs)
 
+    def store_item(self, item) -> None:
+        try:
+            self.items_carried.insert(0, item)
+        except IndexError as exec:
+            ...
+            # TODO implement send items full signal
+
+    def remove_item(self, item) -> None:
+        self.items_carried.remove(item)
+
     def __str__(self) -> str:
         return f"<Name:{self.name} Fighting Prowess={self.fighting_prowess} Psychic Ability={self.psychic_ability} Awareness={self.awareness} Endurance={self.endurance}>"
