@@ -5,6 +5,8 @@ from ..protocols import Descriptor
 from typing import ClassVar
 
 class Warrior(Character):
+    descriptors: ClassVar[list[Descriptor]] = []
+
     fighting_prowess = Attribute(
         verbose_name="Fighting Prowess", rank_attributes=[8, 8, 8, 8, 8, 8, 9])
     psychic_ability = Attribute(
