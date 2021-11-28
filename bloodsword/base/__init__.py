@@ -10,6 +10,14 @@ class Progressable(typing.Protocol):
         pass
 
 
+@typing.runtime_checkable
+class Initializable(typing.Protocol):
+    def initialize_with(self, instance, value) -> None:
+        pass
+
+    def get_initial_value(self, instance) -> int:
+        pass
+
 class Character(ABC):
     """
     Subclass Character to create playable character types. Each attribute
