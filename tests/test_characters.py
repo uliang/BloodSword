@@ -6,12 +6,12 @@ from bloodsword.descriptors.armour import Armour
 
 @pytest.fixture
 def warrior():
-    return Warrior.from_rank("Warrior", 2)
+    return Warrior("Warrior", rank=2)
 
 
 @pytest.fixture
 def sage():
-    return Sage.from_rank("Sage", 2)
+    return Sage("Sage", rank=2)
 
 
 def test_character_initialization(warrior, sage):
