@@ -14,9 +14,9 @@ def sage():
 
 def test_character_initialization(warrior, sage):
     assert str(
-        warrior) == "Character(class:Warrior Fighting Prowess=8 Psychic Ability=6 Awareness=6 Endurance=12)"
+        warrior) == "<Name:Warrior Fighting Prowess=8 Psychic Ability=6 Awareness=6 Endurance=12>"
     assert str(
-        sage) == "Character(class:Sage Fighting Prowess=7 Psychic Ability=7 Awareness=6 Endurance=10)"
+        sage) == "<Name:Sage Fighting Prowess=7 Psychic Ability=7 Awareness=6 Endurance=10>"
 
 
 def test_endurance_cannot_exceed_max(warrior):
