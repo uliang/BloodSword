@@ -1,6 +1,6 @@
 import pytest
-from bloodsword.base import Equipable
-from bloodsword.characters import Sage, Warrior
+from bloodsword.characters.sage import Sage
+from bloodsword.characters.warrior import Warrior
 from bloodsword.descriptors.armour import Armour
 
 
