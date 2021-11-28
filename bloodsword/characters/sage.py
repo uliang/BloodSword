@@ -7,6 +7,8 @@ from . import Character
 
 
 class Sage(Character):
+    descriptors: ClassVar[list[Descriptor]] = []
+
     fighting_prowess = Attribute(verbose_name="Fighting Prowess",
                                  rank_attributes=[7, 7, 7, 7, 7, 7, 8])
     psychic_ability = Attribute(verbose_name="Psychic Ability",
