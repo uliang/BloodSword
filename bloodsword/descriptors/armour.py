@@ -3,12 +3,8 @@ from dataclasses import dataclass
 import typing
 
 
-class Storage(typing.Protocol):
-    def store_item(self, item) -> None:
-        ...
 
-    def remove_item(self, item) -> None:
-        ...
+from ..protocols import Storage, DescriptorList
 
 
 @dataclass
