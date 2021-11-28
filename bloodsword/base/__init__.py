@@ -45,7 +45,7 @@ class Character(ABC):
     @classmethod
     def from_rank(cls, name: str, rank: int = 2) -> Character:
         kwargs = {k: v.get_rank_attribute_value(
-            rank) for k, v in cls.__dict__.items() if isinstance(v, Progressable)}
+            rank) for k, v in vars(cls).items() if isinstance(v, Progressable)}
         return cls(name, **kwargs)
 
     def store_item(self, item) -> None:
