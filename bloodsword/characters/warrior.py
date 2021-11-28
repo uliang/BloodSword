@@ -1,6 +1,8 @@
-from ..base import Character
+from . import Character
 from ..descriptors.attributes import Attribute
 from ..descriptors.armour import Armour
+from ..protocols import Descriptor
+from typing import ClassVar
 
 class Warrior(Character):
     fighting_prowess = Attribute(
