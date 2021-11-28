@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 from typing import List
 
+from ..protocols import DescriptorList
+
 
 @dataclass
 class Attribute:
