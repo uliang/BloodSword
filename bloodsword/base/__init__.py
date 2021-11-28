@@ -18,6 +18,13 @@ class Initializable(typing.Protocol):
     def get_initial_value(self, instance) -> int:
         pass
 
+
+@typing.runtime_checkable
+class Equipable(typing.Protocol):
+    def equip_on(self, instance):
+        pass
+
+
 class Character(ABC):
     """
     Subclass Character to create playable character types. Each attribute
