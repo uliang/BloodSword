@@ -3,13 +3,12 @@ from __future__ import annotations
 from typing import Tuple
 
 
-class Character:
-    def __init__(self, name, fp, pa, a, e):
+    def __init__(self, name: str, fighting_prowess: int, psychic_ability: int, awareness: int, endurance: int):
         self.name = name
-        self.fighting_prowess = fp
-        self.psychic_ability = pa
-        self.awareness = a
-        self.endurance = e
+        self.fighting_prowess = fighting_prowess
+        self.psychic_ability = psychic_ability
+        self.awareness = awareness
+        self.endurance = endurance
 
     @classmethod
     def from_tuple(cls, name, tup: Tuple[int, int, int, int]) -> Character:
