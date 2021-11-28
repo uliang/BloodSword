@@ -30,6 +30,5 @@ class Attribute:
             value = min(value, initial_value)
         setattr(instance, self.private_name, value)
 
-    def get_rank_attribute_value(self, rank:int)-> int: 
+    def get_rank_attribute_value(self, rank: int) -> int:
         return self.rank_attributes[rank-2]
-
