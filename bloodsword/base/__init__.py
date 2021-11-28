@@ -59,4 +59,6 @@ class Character(ABC):
         self.items_carried.remove(item)
 
     def __str__(self) -> str:
-        return f"<Name:{self.name} Fighting Prowess={self.fighting_prowess} Psychic Ability={self.psychic_ability} Awareness={self.awareness} Endurance={self.endurance}>"
+        s = ' '.join('{:s}={:d}'.format(*attrib.get_initial_value(self)) for attrib in vars(
+            self.__class__).values() if isinstance(attrib, Initializable))
+        return f"<Name:{self.name} {s}>"
