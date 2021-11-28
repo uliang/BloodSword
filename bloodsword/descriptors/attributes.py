@@ -12,6 +12,10 @@ class Attribute:
     def initialize_with(self, instance, value):
         setattr(instance, self.private_name, value)
         setattr(instance, self.initial_name, value)
+
+    def get_initial_value(self, instance):
+        return self.verbose_name, getattr(instance, self.initial_name)
+
     def __set_name__(self, owner, name):
         self.private_name = '_' + name
         self.initial_name = f'_initial_{name}_value'
