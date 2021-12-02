@@ -18,6 +18,9 @@ class Position:
     x: int = 0
     y: int = 0
 
+    def __repr__(self):
+        return repr((self.x, self.y))
+
 
 @dataclass
 class TacticalMap(ABC):
