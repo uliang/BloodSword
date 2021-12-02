@@ -253,8 +253,13 @@ class Builder(ABC):
     One should initialize a character in the :py:meth:`__post_init__` method on the subclass and 
     save it to the private variable :py:attr:`_character`. 
     """
-    character_advancement_data: CharacterAdvDataProvider
+    character_class: Attribute
+    rank: int
+    character: str
+    character_advancement_data: str
+
     _character: Character = field(init=False)
+    _character_adv_data: CharacterAdvDataProvider = field(init=False)
 
     @abstractmethod
     def set_experience_points(self) -> None:
