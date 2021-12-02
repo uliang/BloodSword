@@ -208,6 +208,9 @@ class CharacterAdvDataProvider(ABC):
 
 
 class Supervisor(ABC):
+    """
+    Concrete supervisors provide concrete implementations for character creation process. 
+    """
     @abstractmethod
     def build(self, builder: Builder) -> None:
         ...
