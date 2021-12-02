@@ -244,10 +244,14 @@ class Builder(ABC):
     Subclass this abstract class to provide implementation for creating
     behavior objects for each particular character type.
 
-    Attributes
-    ----------
-    character_advancement_data: Requests for character attribute and damage 
-        data is delegated to this Provi
+    .. py:attribute:: character_advancement_data
+        :type: CharacterAdvDataProvider
+
+        Client code should inject an instance of a concrete subclass of :py:class: `CharacterAdvDataProvider`
+        when initializing the builder. 
+
+    One should initialize a character in the :py:meth:`__post_init__` method on the subclass and 
+    save it to the private variable :py:attr:`_character`. 
     """
     character_advancement_data: CharacterAdvDataProvider
     _character: Character = field(init=False)
