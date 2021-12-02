@@ -11,6 +11,7 @@ Welcome to BloodSword's documentation!
    :caption: Contents:
 
    abstract
+   enumeration
 
 
 
