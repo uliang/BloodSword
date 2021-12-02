@@ -154,9 +154,16 @@ class Character(ABC):
         self._endurance = value
 
     @abstractmethod
-    def move(self, to: Position) -> None:
-        """Implement this method to "move" a character. Updating a character's :py:class:`Position <bloodsword.abstract.Position>` only it is an
-        allowed movement on the "current" tactical board."""
+    def move(self, to: Position, on: TacticalMap) -> None:
+        """
+        :param to: Destination coordinate.
+        :type to: Position
+        :param TacticalMap on: The current tactical map. 
+        :rtype: NoneType
+
+        Implement this method to "move" a character. Updating a character's :py:class:`Position <bloodsword.abstract.Position>` 
+        only if is an allowed movement on the "current" tactical board.
+        """
 
     @abstractmethod
     def fight(self, target: Character):
