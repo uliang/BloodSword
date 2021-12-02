@@ -1,5 +1,5 @@
 from __future__ import annotations
-
+from importlib import import_module
 from abc import ABC, abstractclassmethod, abstractmethod
 from dataclasses import dataclass, field
 from typing import Any, List, Optional
@@ -260,6 +260,11 @@ class Builder(ABC):
 
     _character: Character = field(init=False)
     _character_adv_data: CharacterAdvDataProvider = field(init=False)
+
+    def __post_init__(self):
+        self._character = import_module(self.character).Character()
+        self._character_adv_data = import_module(
+            self.character_advancement_data).Provider(self.character_class, self.rank)
 
     @abstractmethod
     def set_experience_points(self) -> None:
