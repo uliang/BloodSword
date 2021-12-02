@@ -194,10 +194,29 @@ class Character(ABC):
 class CharacterAdvDataProvider(ABC):
     """
     Abstract Factory to provide attribute scores and other data for a character
-    of rank `provide_for_rank`. 
+    of rank py:attr: `provide_for_rank`. 
 
     Subclass to provide implementation importing character advancement data from
-    a particular source (e.g. database, json, xml, toml, yaml, etc...).  
+    a particular source (e.g. database, `json`, `xml`, `toml`, `yaml`, etc...).  
+
+    It is intended to be used in the following way, :: 
+
+        >>> class CharacterAdvDataProviderFromJSON(CharacterAdvDataProvider)
+        ...     # logic for reading from a json file here
+        >>> provider = CharacterAdvDataProviderFromJSON(CharacterClass.SAGE, 2)
+        >>> provider[Attribute.FIGHTING_PROWESS]
+        7
+
+    .. py:attribute:: provide_for_character_class
+        :type: bloodsword.enumeration.CharacterClass
+
+        Advancement data for character of given :py:class:`type <bloodsword.enumeration.CharacterClass>`
+
+    .. py:attribute:: provide_for_rank
+        :type: int 
+        :value: 2
+
+        Starting rank when initializing character. 
     """
     provide_for_character_class: CharacterClass
     provide_for_rank: int = field(default=2)
