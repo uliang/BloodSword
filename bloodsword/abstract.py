@@ -213,7 +213,10 @@ class Supervisor(ABC):
     """
     @abstractmethod
     def build(self, builder: Builder) -> None:
-        ...
+        """
+        Implement logic for injecting particular character rules as behavior instances
+        into an initialized character. 
+        """
 
 
 @dataclass
