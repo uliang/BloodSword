@@ -102,7 +102,31 @@ class Character(ABC):
 
         The starting power level of the character. 
     """
+    fighting_prowess: int = 0
+    psychic_ability: int = 0
+    awareness: int = 0
+
+    _endurance: int = field(init=False)
+    _initial_endurance: int = field(default=None, init=False)
+    _current_position: Position = field(init=False, default=(0, 0))
+
     rank: int = field(default=2)
+    xp: int = field(default=250)
+
+    @property
+    def endurance(self) -> int:
+        """A measure of a character's state of health. It can never go above it's initial
+        value."""
+        return self._endurance
+
+    @endurance.setter
+    def endurance(self, value: int) -> None:
+        if self._initial_endurance is None:
+            self._endurance = value
+            self._initial_endurance = value
+            return
+        value = min(self._initial_endurance, max(0, value))
+        self._endurance = value
 
     @abstractmethod
     def move(self, to: Position) -> None:
