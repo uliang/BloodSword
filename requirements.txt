@@ -8,3 +8,6 @@ pyparsing==3.0.6
 tomli==1.2.2
 wincertstore==0.2
 pytest==6.2.5
+sphinx==4.3.1
+sphinx-sizzle-theme==0.0.9
+autopep8==1.6.0
