@@ -120,6 +120,12 @@ class Character(ABC):
         :value: 2 
 
         The starting power level of the character. 
+
+    .. py:attribute:: xp 
+        :type: int 
+        :value: 250 
+
+        Initial experience points. 
     """
     fighting_prowess: int = 0
     psychic_ability: int = 0
