@@ -96,6 +96,25 @@ class Character(ABC):
     type specific behaviors using the Builder class as supervised by the Supervisor
     class. 
 
+    .. py:attribute:: fighting_prowess
+        :type: int
+        :value: 0
+
+        A measure of how skilled and powerful a fighter the character is.
+
+    .. py:attribute:: psychic_ability
+        :type: int
+        :value: 0 
+
+        A measure of resistance to hostile spells and for an Echanter, his or her
+        aptitude for magic. 
+
+    .. py:attribute:: awareness
+        :type: int 
+        :value: 0
+
+        Quickness of thought, dexterity and wits. 
+
     .. py:attribute:: rank
         :type: int 
         :value: 2 
