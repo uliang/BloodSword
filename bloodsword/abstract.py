@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from abc import ABC, abstractclassmethod, abstractmethod
 from dataclasses import dataclass, field
-from typing import Any, List, Tuple
+from typing import Any, List, Optional
 
 from .enumeration import Attribute, CharacterClass, Spell
 
@@ -132,7 +132,7 @@ class Character(ABC):
     awareness: int = 0
 
     _endurance: int = field(init=False)
-    _initial_endurance: int = field(default=None, init=False)
+    _initial_endurance: Optional[int] = field(default=None, init=False)
     _current_position: Position = field(init=False, default=(0, 0))
 
     rank: int = field(default=2)
