@@ -194,7 +194,7 @@ class Character(ABC):
 class CharacterAdvDataProvider(ABC):
     """
     Abstract Factory to provide attribute scores and other data for a character
-    of rank py:attr: `provide_for_rank`. 
+    of rank :py:attr:`provide_for_rank`. 
 
     Subclass to provide implementation importing character advancement data from
     a particular source (e.g. database, `json`, `xml`, `toml`, `yaml`, etc...).  
