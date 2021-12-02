@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from abc import ABC, abstractclassmethod, abstractmethod
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, List, Tuple
 
-from .enumeration import Spell, CharacterClass, Attribute
+from .enumeration import Attribute, CharacterClass, Spell
 
 
 @dataclass
