@@ -215,8 +215,7 @@ class Factory(ABC):
         self._character.damage = self._character_adv_data[Attribute.DAMAGE]
 
     @abstractmethod
-    def init_equipment(self) -> None:
-        ...
+    def _init_equipment(self) -> None:
 
     @abstractmethod
     def learn_special_abilities(self) -> None:
