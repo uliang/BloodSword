@@ -59,6 +59,8 @@ class Character(ABC):
     _endurance: int = field(init=False)
     _initial_endurance: Optional[int] = field(default=None, init=False)
     _current_position: Position = field(init=False, default=(0, 0))
+    _status_effects: List[StatusEffects] = field(
+        init=False, default_factory=list)
 
     rank: int = field(default=2)
     xp: int = field(default=250)
