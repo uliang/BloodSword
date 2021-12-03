@@ -20,3 +20,7 @@ class Attribute(str, Enum):
     AWARENESS = 'awareness' 
     ENDURANCE = 'endurance'
     DAMAGE = 'damage'
+
+class StatusEffects(str, Enum): 
+    ... 
+
