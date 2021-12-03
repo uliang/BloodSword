@@ -94,3 +94,12 @@ class TacticalMap:
             [(2, 1)]
         """
 
+    def valid_destination(self, destination: Position) -> bool:
+        """
+        Determines if destination can be moved into
+        """
+
+    def compute_nearest(self, pc_positions: List[Position], monster_position: Position) -> Position:
+        """
+        Determines nearest player character to monster.
+        """
