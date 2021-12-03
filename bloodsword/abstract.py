@@ -208,8 +208,8 @@ class Factory(ABC):
         self._character.xp = self._character_adv_data[Attribute.XP]
 
     @abstractmethod
-    def init_attributes(self) -> None:
         ...
+    def _init_attributes(self) -> None:
 
     @abstractmethod
     def init_equipment(self) -> None:
