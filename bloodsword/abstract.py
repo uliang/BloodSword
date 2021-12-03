@@ -163,8 +163,8 @@ class AdvDataProvider(ABC):
         Starting rank when initializing character. Not that if None, then the provider assumes 
         that only default attribute data is returned. 
     """
-    provide_for_character_class: CharacterClass
-    provide_for_rank: int = field(default=2)
+    path_to_adv_data: str
+    provide_for_rank: Optional[int] = None
 
     @abstractmethod
     def __getitem__(self, key: Attribute) -> Any:
