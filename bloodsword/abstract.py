@@ -233,6 +233,12 @@ class Factory(ABC):
         all other classes, this operation is a no-op. 
         """
 
+    def _create_character(self) -> None:
+        self._set_experience_points()
+        self._init_attributes()
+        self._init_equipment()
+        self._learn_special_abilities()
+        self._learn_spells()
 
     @abstractmethod
     def get_character(self) -> Character:
