@@ -8,25 +8,14 @@ Character
 
 .. autoclass:: bloodsword.abstract.Character
     :members:
-
-.. autoclass:: bloodsword.abstract.Supervisor
-    :members:
     
-.. autoclass:: bloodsword.abstract.Builder
+.. autoclass:: bloodsword.abstract.Factory
     :members:
 
 
 Data Providers
 --------------
 
-.. autoclass:: bloodsword.abstract.CharacterAdvDataProvider
+.. autoclass:: bloodsword.abstract.AdvDataProvider
     :members:
     
-
-Utility classes
----------------
-.. autoclass:: bloodsword.abstract.Position
-    :members:
-
-.. autoclass:: bloodsword.abstract.TacticalMap
-    :members: 

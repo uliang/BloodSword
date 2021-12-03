@@ -12,7 +12,7 @@ Welcome to BloodSword's documentation!
 
    abstract
    enumeration
-
+   geometry
 
 
 Indices and tables
