@@ -78,7 +78,6 @@ class Character(ABC):
         value = min(self._initial_endurance, max(0, value))
         self._endurance = value
 
-    @abstractmethod
     def move(self, to: Position, on: TacticalMap) -> None:
         """
         :param to: Destination coordinate.
@@ -86,8 +85,8 @@ class Character(ABC):
         :param TacticalMap on: The current tactical map. 
         :rtype: NoneType
 
-        Implement this method to "move" a character. Updating a character's :py:class:`Position <bloodsword.abstract.Position>` 
-        only if is an allowed movement on the "current" tactical board.
+        Updates a character's :py:class:`Position <bloodsword.abstract.Position>` 
+        only if is an allowed movement on the  tactical board.
         """
 
     @abstractmethod
