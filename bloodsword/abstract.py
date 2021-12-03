@@ -171,8 +171,7 @@ class AdvDataProvider(ABC):
         ...
 
 
-@dataclass
-class Builder(ABC):
+class Factory(ABC):
     """
     Subclass this abstract class to provide implementation for creating
     behavior objects for each particular character type.
