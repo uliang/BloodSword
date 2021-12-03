@@ -120,7 +120,9 @@ class Character(ABC):
 
     @abstractmethod
     def call_a_spell_to_mind(self, spell: Spell):
-        ...
+        """
+        Spell must be prepared before casting. A character can call a spell to mind at any time but 
+        every spell called to mind reduces :py:attr:`psychic ability <psychic_ability>` by one."""
 
     @abstractmethod
     def cast_a_spell_in_mind(self, spell: Spell):
