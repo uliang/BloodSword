@@ -135,7 +135,7 @@ class Character(ABC):
 
 
 @dataclass
-class CharacterAdvDataProvider(ABC):
+class AdvDataProvider(ABC):
     """
     Abstract Factory to provide attribute scores and other data for a character
     of rank :py:attr:`provide_for_rank`. 
