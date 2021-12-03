@@ -194,7 +194,6 @@ class Factory(ABC):
     """
 
     @abstractmethod
-    def set_experience_points(self) -> None:
         ...
     def __init__(self,
                  character_class: Attribute,
@@ -207,6 +206,7 @@ class Factory(ABC):
         self._character_adv_data: AdvDataProvider = import_module(
             advancement_data_provider).Provider(character_class, rank)
 
+    def _set_experience_points(self) -> None:
 
     @abstractmethod
     def init_attributes(self) -> None:
