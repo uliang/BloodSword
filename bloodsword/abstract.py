@@ -207,9 +207,12 @@ class Factory(ABC):
     def _set_experience_points(self) -> None:
         self._character.xp = self._character_adv_data[Attribute.XP]
 
-    @abstractmethod
-        ...
     def _init_attributes(self) -> None:
+        self._character.fighting_prowess = self._character_adv_data[Attribute.FIGHTTING_PROWESS]
+        self._character.psychic_ability = self._character_adv_data[Attribute.PSYCHIC_ABILITY]
+        self._character.awareness = self._character_adv_data[Attribute.AWARENESS]
+        self._character.endurance = self._character_adv_data[Attribute.ENDURANCE]
+        self._character.damage = self._character_adv_data[Attribute.DAMAGE]
 
     @abstractmethod
     def init_equipment(self) -> None:
