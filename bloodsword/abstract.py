@@ -240,7 +240,6 @@ class Factory(ABC):
         self._learn_special_abilities()
         self._learn_spells()
 
-    @abstractmethod
     def get_character(self) -> Character:
         """
         Returns a Character instance."""
