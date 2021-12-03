@@ -216,6 +216,9 @@ class Factory(ABC):
 
     @abstractmethod
     def _init_equipment(self) -> None:
+        """
+        Override this method to implement specific equipment for a character. 
+        """
 
     @abstractmethod
     def learn_special_abilities(self) -> None:
