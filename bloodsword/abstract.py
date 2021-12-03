@@ -33,6 +33,12 @@ class Character(ABC):
 
         Quickness of thought, dexterity and wits. 
 
+    .. py:attribute:: damage
+        :type: str
+        :value: '1d6'
+
+        Amount of damage dealt on hit. 
+
     .. py:attribute:: rank
         :type: int 
         :value: 2 
@@ -48,6 +54,7 @@ class Character(ABC):
     fighting_prowess: int = 0
     psychic_ability: int = 0
     awareness: int = 0
+    damage: str = '1d6'
 
     _endurance: int = field(init=False)
     _initial_endurance: Optional[int] = field(default=None, init=False)
