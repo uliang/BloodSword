@@ -17,7 +17,18 @@ class Position:
     x: int = 0
     y: int = 0
 
+    _square_type: Square = field(default=Square.GRID, init=False)
 
     def __repr__(self):
         return repr((self.x, self.y))
+
+    @property
+    def square(self) -> Square:
+        """
+        Denotes the type of square the coordinates are referencing."""
+        return self._square_type
+
+    @square.setter
+    def square(self, value: Square):
+        self._square_type = value
 
