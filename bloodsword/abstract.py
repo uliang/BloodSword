@@ -227,8 +227,8 @@ class Factory(ABC):
         """
 
     @abstractmethod
-    def learn_spells(self) -> None:
         ...
+    def _learn_spells(self) -> None:
 
     @abstractmethod
     def get_character(self) -> Character:
