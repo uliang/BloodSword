@@ -91,7 +91,14 @@ class Character(ABC):
 
     @abstractmethod
     def fight(self, target: Character):
-        ...
+        """
+        :param Character target: Target of attack. 
+        :rtype: NoneType
+
+        Perform a melee attack action. Character must roll *under* :py:attr:`fighting prowess <fighting_prowess>` in order 
+        to score a hit with 2d6 and 3d6 if target is defending. Special modifiers may apply. Character can only attack 
+        a target which is adjacent to them. 
+        """
 
     @abstractmethod
     def defend(self):
