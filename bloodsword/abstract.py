@@ -102,7 +102,9 @@ class Character(ABC):
 
     @abstractmethod
     def defend(self):
-        ...
+        """
+        Perform the defend action. This makes character harder to hit. The opponent needs to roll on 3d6
+        to hit. Modifiers may apply. """
 
     @abstractmethod
     def shoot(self):
