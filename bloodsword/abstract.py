@@ -221,8 +221,10 @@ class Factory(ABC):
         """
 
     @abstractmethod
-        ...
     def _learn_special_abilities(self) -> None:
+        """
+        Override this method to implement special abilities for a character.
+        """
 
     @abstractmethod
     def learn_spells(self) -> None:
