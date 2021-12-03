@@ -24,3 +24,9 @@ class Attribute(str, Enum):
 class StatusEffects(str, Enum): 
     ... 
 
+
+class Square(Enum): 
+    GRID = auto()
+    OBSTACLE = auto()
+    PARTIAL = auto() 
+    FLEE = auto()
