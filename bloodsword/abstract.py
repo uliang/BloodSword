@@ -114,7 +114,9 @@ class Character(ABC):
 
     @abstractmethod
     def flee(self):
-        ...
+        """
+        Flee from combat. Fleeing is allowed if on a :py:class:`fleeing <bloodsword.enumeration.Square>` square
+        or adjacent to a character who can flee."""
 
     @abstractmethod
     def call_a_spell_to_mind(self, spell: Spell):
