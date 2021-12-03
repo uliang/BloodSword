@@ -227,8 +227,12 @@ class Factory(ABC):
         """
 
     @abstractmethod
-        ...
     def _learn_spells(self) -> None:
+        """
+        Override this method to implement spells for Enchanter class. For 
+        all other classes, this operation is a no-op. 
+        """
+
 
     @abstractmethod
     def get_character(self) -> Character:
