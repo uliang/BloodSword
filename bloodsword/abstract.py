@@ -171,18 +171,6 @@ class AdvDataProvider(ABC):
         ...
 
 
-class Supervisor(ABC):
-    """
-    Concrete supervisors provide concrete implementations for character creation process. 
-    """
-    @abstractmethod
-    def build(self, builder: Builder) -> None:
-        """
-        Implement logic for injecting particular character rules as behavior instances
-        into an initialized character. 
-        """
-
-
 @dataclass
 class Builder(ABC):
     """
