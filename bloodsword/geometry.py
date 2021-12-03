@@ -22,6 +22,12 @@ class Position:
     def __repr__(self):
         return repr((self.x, self.y))
 
+    def is_adjacent(self, to: Position) -> bool:
+        """
+        :return: Returns ``True`` if ``to`` position is on square away in the cardinal directions and ``False`` otherwise.
+        :rtype: bool
+        """
+
     @property
     def square(self) -> Square:
         """
