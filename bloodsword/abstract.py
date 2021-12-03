@@ -193,8 +193,6 @@ class Factory(ABC):
     save it to the private variable :py:attr:`_character`. 
     """
 
-    @abstractmethod
-        ...
     def __init__(self,
                  character_class: Attribute,
                  rank: int,
@@ -207,6 +205,7 @@ class Factory(ABC):
             advancement_data_provider).Provider(character_class, rank)
 
     def _set_experience_points(self) -> None:
+        self._character.xp = self._character_adv_data[Attribute.XP]
 
     @abstractmethod
     def init_attributes(self) -> None:
