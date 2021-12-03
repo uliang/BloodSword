@@ -176,21 +176,14 @@ class Factory(ABC):
     Subclass this abstract class to provide implementation for creating
     behavior objects for each particular character type.
 
-    .. 
-    .. py:attribute:: character
-        :type: str
+    :param Attribute character_class: Character to draw attribute data for. 
+    :param int rank: Initial power level of character. 
+    :param str character: Qualified name to concrete subclass of Character. 
+    :param str advancement_data_provider: Qualified name of the module containing the concrete subclass of CharacterAdvDataProvider. 
+    :type advancement_data_provider: str
 
-        Qualified name of the module containing concrete character. Module should expose a concrete 
-        subclass of abstract.Character as Character. 
-
-    .. py:attribute:: character_advancement_data
-        :type: str
-
-        Qualified name of the module containing the concrete subclass of CharacterAdvDataProvider. 
-        Module should expose the Provider concrete class to be initialized 
-
-    One should initialize a character in the :py:meth:`__post_init__` method on the subclass and 
-    save it to the private variable :py:attr:`_character`. 
+    Module implementing Character should name the class Character while
+    implementing AdvDataProvider should name the class Provider to be initialized. 
     """
 
     def __init__(self,
