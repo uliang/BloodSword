@@ -242,4 +242,7 @@ class Factory(ABC):
 
     @abstractmethod
     def get_character(self) -> Character:
-        ...
+        """
+        Returns a Character instance."""
+        self._create_character()
+        return self._character
