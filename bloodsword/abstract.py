@@ -221,8 +221,8 @@ class Factory(ABC):
         """
 
     @abstractmethod
-    def learn_special_abilities(self) -> None:
         ...
+    def _learn_special_abilities(self) -> None:
 
     @abstractmethod
     def learn_spells(self) -> None:
