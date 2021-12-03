@@ -126,7 +126,12 @@ class Character(ABC):
 
     @abstractmethod
     def cast_a_spell_in_mind(self, spell: Spell):
-        ...
+        """
+        Cast a spell held in mind. To cast, roll 2d6 and add spell complexity level. Spell is cast
+        successfully if the player rolls *under* the current :py:attr:`psychic ability <psychic_ability>`
+        score. If the casting failed, the same spell may be cast again by reducing roll result by one. 
+        
+        The casting roll is reset once a spell is cast successfully."""
 
 
 @dataclass
