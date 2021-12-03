@@ -137,7 +137,7 @@ class Character(ABC):
 @dataclass
 class AdvDataProvider(ABC):
     """
-    Abstract Factory to provide attribute scores and other data for a character
+    Factory to provide attribute scores and other data for a character
     of rank :py:attr:`provide_for_rank`. 
 
     Subclass to provide implementation importing character advancement data from
@@ -147,20 +147,21 @@ class AdvDataProvider(ABC):
 
         >>> class CharacterAdvDataProviderFromJSON(CharacterAdvDataProvider)
         ...     # logic for reading from a json file here
-        >>> provider = CharacterAdvDataProviderFromJSON(CharacterClass.SAGE, 2)
+        >>> provider = CharacterAdvDataProviderFromJSON('./data/sageAdvancement.json', 2)
         >>> provider[Attribute.FIGHTING_PROWESS]
         7
 
-    .. py:attribute:: provide_for_character_class
-        :type: bloodsword.enumeration.CharacterClass
+    .. py:attribute:: path_to_adv_data
+        :type: str
 
-        Advancement data for character of given :py:class:`type <bloodsword.enumeration.CharacterClass>`
+        Path to advancement data. 
 
     .. py:attribute:: provide_for_rank
-        :type: int 
-        :value: 2
+        :type: int or None
+        :value: None
 
-        Starting rank when initializing character. 
+        Starting rank when initializing character. Not that if None, then the provider assumes 
+        that only default attribute data is returned. 
     """
     provide_for_character_class: CharacterClass
     provide_for_rank: int = field(default=2)
