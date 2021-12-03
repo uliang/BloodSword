@@ -107,8 +107,10 @@ class Character(ABC):
         to hit. Modifiers may apply. """
 
     @abstractmethod
-    def shoot(self):
-        ...
+    def shoot(self, target: Character):
+        """
+        Perform the shoot action. Not all characters may shoot. Shooting is only allowed if equipped with
+        bow and a quiver containing at least one arrow and target is not adjacent"""
 
     @abstractmethod
     def flee(self):
