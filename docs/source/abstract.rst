@@ -6,6 +6,12 @@ Abstract classes for BloodSword game.
 Value classes
 -------------
 
+.. autoclass:: bloodsword.abstract.Dice
+    :members:
+
+.. autoclass:: bloodsword.abstract.Rank
+    :members:
+    
 .. autoclass:: bloodsword.abstract.Score 
     :members:
     
