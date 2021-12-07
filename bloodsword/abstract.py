@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from abc import ABC, abstractmethod
+from abc import ABC, abstractclassmethod, abstractmethod
 from dataclasses import dataclass, field
 from importlib import import_module
 from typing import Any, List, Optional
@@ -9,6 +9,31 @@ from math import floor
 from .enumeration import Attribute, CharacterClass, Spell, StatusEffects
 from .geometry import Position, TacticalMap
 
+
+@dataclass
+class Dice(ABC):
+    """
+    Subclass to provide logic for Dice object.
+    """
+    _n: int
+    _n_faces: int
+    _modifier: Optional[int] = None
+
+    @abstractclassmethod
+    def from_string(cls, notation: str) -> Dice:
+        """
+        :param str notation: Die notation in XdY+Z. 
+        :returns: Instance of Dice. 
+        :rtype: Dice
+
+        Factory function to create dice object from die notation. 
+        """
+
+    @abstractmethod
+    def roll(self) -> Score:
+        """
+        Roll dice and obtain result as a Score object. 
+        """
 
 @dataclass(frozen=True, eq=True, order=True)
 class Score(ABC):
