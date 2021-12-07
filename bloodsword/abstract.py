@@ -171,15 +171,9 @@ class Factory(ABC):
     Subclass this abstract class to provide implementation for creating
     behavior objects for each particular character type.
 
-    :param Attribute character_class: Character to draw attribute data for. 
-    :param int rank: Initial power level of character. 
-    :param str character: Qualified name to concrete subclass of Character. 
-    :param str advancement_data_provider: Qualified name of the module containing the concrete subclass of CharacterAdvDataProvider. 
-    :type advancement_data_provider: str
-
-    Module implementing Character should name the class Character while
-    implementing AdvDataProvider should name the class Provider to be initialized. 
+    :param AdvDataProvider advancement_data: Instance of provider for Advancement Data. 
     """
+    advancement_data: AdvDataProvider
 
 
     @abstractmethod
