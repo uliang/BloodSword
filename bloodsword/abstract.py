@@ -57,17 +57,22 @@ class Score(ABC):
         attribute. 
         """
 
-        Amount of damage dealt on hit. 
 
-    .. py:attribute:: rank
-        :type: int 
-        :value: 2 
+@dataclass(init=False)
+class Character(ABC):
+    """
+    Subclass this abstract class to implement generic rules for all characters.  
+    """
+    _fighting_prowess: Score
+    _psychic_ability: Score
+    _awareness: Score
+    _endurance: Score
+    _damage: str
 
         The starting power level of the character. 
 
-    .. py:attribute:: xp 
-        :type: int 
-        :value: 250 
+    _rank: int = field(default=2)
+    _xp: int = field(default=250)
 
         Initial experience points. 
     """
