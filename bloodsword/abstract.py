@@ -69,7 +69,8 @@ class Character(ABC):
     _endurance: Score
     _damage: str
 
-        The starting power level of the character. 
+    _current_position: Position = field(default=Position(0, 0))
+    _status_effects: List[StatusEffects] = field(default_factory=list)
 
     _rank: int = field(default=2)
     _xp: int = field(default=250)
