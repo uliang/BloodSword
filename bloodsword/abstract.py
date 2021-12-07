@@ -139,7 +139,7 @@ class Character(ABC):
     _items_carried: Deque = field(default=deque([], maxlen=10))
 
     def __repr__(self) -> str:
-        return f"{self.__name__}(rank={self.rank})"
+        return f"{type(self).__name__}(rank={self.rank})"
 
     def move(self, to: Position, on: TacticalMap) -> None:
         """
