@@ -238,7 +238,7 @@ class Factory(ABC):
     """
     advancement_data: AdvDataProvider
 
-    _character: Optional[Character] = field(init=False)
+    _character: Optional[Character] = field(init=False, default=None)
 
     @abstractmethod
     def _initialize(self) -> None:
