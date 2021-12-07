@@ -122,7 +122,7 @@ class Score(ABC):
         """
 
 
-@dataclass(init=False)
+@dataclass
 class Character(ABC):
     """
     Subclass this abstract class to implement generic rules for all characters.  
