@@ -9,17 +9,26 @@ from .enumeration import Attribute, CharacterClass, Spell, StatusEffects
 from .geometry import Position, TacticalMap
 
 
-@dataclass
-class Character(ABC):
+@dataclass(frozen=True, eq=True, order=True)
+class Score(ABC):
     """
-    Subclass this abstract class to implement generic rules for all characters. 
-    Special rules for each character type are implemented by injecting character
-    type specific behaviors using the Builder class as supervised by the Supervisor
-    class. 
+    Subclass this abstract class to implement rules for attribute values.
+    E.g., the fact that endurance cannot exceed it's initial value. 
 
-    .. py:attribute:: fighting_prowess
-        :type: int
-        :value: 0
+    Score attempts to emulate numeric types. ::
+
+        >>> x = Score(7,7)
+        >>> x + Score(5)
+        12
+        >>> x - Score(1)
+        6
+        >>> x*2
+        14
+        >>> x/3
+        2
+    """
+    _value: int = field(compare=True)
+    _initial_value: Optional[int] = field(compare=False, default=None)
 
         A measure of how skilled and powerful a fighter the character is.
 
