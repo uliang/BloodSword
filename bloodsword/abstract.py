@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from importlib import import_module
 from typing import Any, List, Optional
+from math import floor
 
 from .enumeration import Attribute, CharacterClass, Spell, StatusEffects
 from .geometry import Position, TacticalMap
@@ -30,20 +31,24 @@ class Score(ABC):
     _value: int = field(compare=True)
     _initial_value: Optional[int] = field(compare=False, default=None)
 
-        A measure of how skilled and powerful a fighter the character is.
+    def __repr__(self) -> str:
+        return repr(self._value)
 
-    .. py:attribute:: psychic_ability
-        :type: int
-        :value: 0 
+    def __add__(self, value: Score):
+        a = self._increment(value)
+        return Score(a, self._initial_value)
 
-        A measure of resistance to hostile spells and for an Echanter, his or her
-        aptitude for magic. 
+    def __sub__(self, value: Score):
+        return Score(max(0, self._value - value._value), self._initial_value)
 
-    .. py:attribute:: awareness
-        :type: int 
-        :value: 0
+    def __mul__(self, value: int):
+        return Score(self._data*value, self._initial_value)
 
-        Quickness of thought, dexterity and wits. 
+    def __div__(self, value: int):
+        """
+        Results are always rounded down. 
+        """
+        return Score(floor(self._value/value), self._initial_value)
 
     .. py:attribute:: damage
         :type: str
