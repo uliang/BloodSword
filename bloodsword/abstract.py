@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 from abc import ABC, abstractclassmethod, abstractmethod
+from collections import deque
 from dataclasses import dataclass, field
-from importlib import import_module
-from typing import Any, List, Optional
+from typing import Any, Deque, List, Optional
 from math import floor
 
-from .enumeration import Attribute, CharacterClass, Spell, StatusEffects
+from .enumeration import Attribute, Spell, StatusEffects
 from .geometry import Position, TacticalMap
 
 
