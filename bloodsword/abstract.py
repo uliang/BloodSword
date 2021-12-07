@@ -175,6 +175,13 @@ class Factory(ABC):
     """
     advancement_data: AdvDataProvider
 
+    _character: Optional[Character] = field(init=False)
+
+    @abstractmethod
+    def _initialize(self) -> None:
+        """
+        Override to initialize character instance.
+        """
 
     @abstractmethod
     def _init_equipment(self) -> None:
