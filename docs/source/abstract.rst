@@ -3,6 +3,12 @@ Abstract
 
 Abstract classes for BloodSword game. 
 
+Value classes
+-------------
+
+.. autoclass:: bloodsword.abstract.Score 
+    :members:
+    
 Character
 ---------
 
