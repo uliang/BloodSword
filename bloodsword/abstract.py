@@ -117,7 +117,7 @@ class Score(ABC):
     @abstractmethod
     def _increment(self, value: Score) -> int:
         """
-        Override this method to implement special rules for incrementing
+        Override this method to implement special rules for incrementing the
         attribute. 
         """
 
