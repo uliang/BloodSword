@@ -151,19 +151,13 @@ class AdvDataProvider(ABC):
         >>> provider[Attribute.FIGHTING_PROWESS]
         7
 
-    .. py:attribute:: path_to_adv_data
-        :type: str
+    :param str location_of_adv_data: Location of advancement data. Could be a database connection string, path to a json file.
+    :param provide_for_rank: Power level of character. 
+    :type provide_for_rank: int or None. 
 
-        Path to advancement data. 
-
-    .. py:attribute:: provide_for_rank
-        :type: int or None
-        :value: None
-
-        Starting rank when initializing character. Not that if None, then the provider assumes 
-        that only default attribute data is returned. 
+    If None is provided for :py:attr:`provide_for_rank`, it is assumed that attribute level is available only for a default level. 
     """
-    path_to_adv_data: str
+    location_of_adv_data: str
     provide_for_rank: Optional[int] = None
 
     @abstractmethod
