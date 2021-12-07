@@ -35,6 +35,45 @@ class Dice(ABC):
         Roll dice and obtain result as a Score object. 
         """
 
+
+@dataclass(frozen=True, eq=True, order=True)
+class Rank(ABC):
+    """
+    Value object for representing the power level of character, current XP and
+    whether character should advance in rank.
+    """
+    _rank: int = field(compare=True)
+    _xp: int = field(compare=False)
+    _breakpoint: int = field(compare=False)
+
+    @property
+    def rank(self) -> int:
+        """
+        :returns: Power level of character.
+        :rtype: int
+        """
+        return self._rank
+
+    def __repr__(self) -> str:
+        return repr(self._rank)
+
+    @abstractmethod
+    def should_advance(self, with_xp: int) -> bool:
+        """
+        :param int with_xp: Amount of additional xp awarded.
+        :returns: True if new rank is attained, False otherwise.
+        :rtype: bool
+
+        Implement logic to test whether a new rank is attained. ::
+
+            >>> r = Rank(2, 250, 499)
+            >>> r.should_advance(300)
+            True
+            >>> r.should_advance(200)
+            False
+        """
+
+
 @dataclass(frozen=True, eq=True, order=True)
 class Score(ABC):
     """
