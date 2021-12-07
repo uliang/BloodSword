@@ -165,6 +165,7 @@ class AdvDataProvider(ABC):
         ...
 
 
+@dataclass
 class Factory(ABC):
     """
     Subclass this abstract class to provide implementation for creating
@@ -180,26 +181,6 @@ class Factory(ABC):
     implementing AdvDataProvider should name the class Provider to be initialized. 
     """
 
-    def __init__(self,
-                 character_class: Attribute,
-                 rank: int,
-                 character: str,
-                 advancement_data_provider: Optional[str]
-                 ) -> None:
-        self._character: Character = import_module(character).Character()
-        self._character.rank = rank
-        self._character_adv_data: AdvDataProvider = import_module(
-            advancement_data_provider).Provider(character_class, rank)
-
-    def _set_experience_points(self) -> None:
-        self._character.xp = self._character_adv_data[Attribute.XP]
-
-    def _init_attributes(self) -> None:
-        self._character.fighting_prowess = self._character_adv_data[Attribute.FIGHTTING_PROWESS]
-        self._character.psychic_ability = self._character_adv_data[Attribute.PSYCHIC_ABILITY]
-        self._character.awareness = self._character_adv_data[Attribute.AWARENESS]
-        self._character.endurance = self._character_adv_data[Attribute.ENDURANCE]
-        self._character.damage = self._character_adv_data[Attribute.DAMAGE]
 
     @abstractmethod
     def _init_equipment(self) -> None:
