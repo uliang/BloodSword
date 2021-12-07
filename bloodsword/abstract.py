@@ -203,8 +203,7 @@ class Factory(ABC):
         """
 
     def _create_character(self) -> None:
-        self._set_experience_points()
-        self._init_attributes()
+        self._initialize()
         self._init_equipment()
         self._learn_special_abilities()
         self._learn_spells()
