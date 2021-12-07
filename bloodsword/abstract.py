@@ -131,13 +131,12 @@ class Character(ABC):
     _psychic_ability: Score
     _awareness: Score
     _endurance: Score
-    _damage: str
+    _rank: Rank
+    _damage: Dice
 
     _current_position: Position = field(default=Position(0, 0))
     _status_effects: List[StatusEffects] = field(default_factory=list)
-
-    _rank: int = field(default=2)
-    _xp: int = field(default=250)
+    _items_carried: Deque = field(default=deque([], maxlen=10))
 
     def __repr__(self) -> str:
         return f"{self.__name__}(rank={self.rank})"
