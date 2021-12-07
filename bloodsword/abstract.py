@@ -50,9 +50,12 @@ class Score(ABC):
         """
         return Score(floor(self._value/value), self._initial_value)
 
-    .. py:attribute:: damage
-        :type: str
-        :value: '1d6'
+    @abstractmethod
+    def _increment(self, value: Score) -> int:
+        """
+        Override this method to implement special rules for incrementing
+        attribute. 
+        """
 
         Amount of damage dealt on hit. 
 
