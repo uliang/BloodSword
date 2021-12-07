@@ -75,36 +75,8 @@ class Character(ABC):
     _rank: int = field(default=2)
     _xp: int = field(default=250)
 
-        Initial experience points. 
-    """
-    fighting_prowess: int = 0
-    psychic_ability: int = 0
-    awareness: int = 0
-    damage: str = '1d6'
-
-    _endurance: int = field(init=False)
-    _initial_endurance: Optional[int] = field(default=None, init=False)
-    _current_position: Position = field(init=False, default=(0, 0))
-    _status_effects: List[StatusEffects] = field(
-        init=False, default_factory=list)
-
-    rank: int = field(default=2)
-    xp: int = field(default=250)
-
-    @property
-    def endurance(self) -> int:
-        """A measure of a character's state of health. It can never go above it's initial
-        value."""
-        return self._endurance
-
-    @endurance.setter
-    def endurance(self, value: int) -> None:
-        if self._initial_endurance is None:
-            self._endurance = value
-            self._initial_endurance = value
-            return
-        value = min(self._initial_endurance, max(0, value))
-        self._endurance = value
+    def __repr__(self) -> str:
+        return f"{self.__name__}(rank={self.rank})"
 
     def move(self, to: Position, on: TacticalMap) -> None:
         """
@@ -158,7 +130,7 @@ class Character(ABC):
         Cast a spell held in mind. To cast, roll 2d6 and add spell complexity level. Spell is cast
         successfully if the player rolls *under* the current :py:attr:`psychic ability <psychic_ability>`
         score. If the casting failed, the same spell may be cast again by reducing roll result by one. 
-        
+
         The casting roll is reset once a spell is cast successfully."""
 
 
