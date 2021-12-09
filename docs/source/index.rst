@@ -7,13 +7,11 @@ Welcome to BloodSword's documentation!
 ======================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    abstract
-   enumeration
-   geometry
-
+   
 
 Indices and tables
 ==================
