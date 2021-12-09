@@ -1,33 +1,34 @@
-Abstract 
+Domain 
 ========
 
-Abstract classes for BloodSword game. 
+Domain classes for BloodSword game. 
 
-Value classes
+Value objects
 -------------
 
-.. autoclass:: bloodsword.abstract.Dice
+.. automodule:: bloodsword.domain.values
+    :members:    
+
+Entities
+--------
+
+.. automodule:: bloodsword.domain.entities
     :members:
 
-.. autoclass:: bloodsword.abstract.Rank
+Aggregates
+----------
+
+.. automodule:: bloodsword.domain.aggregates
     :members:
-    
-.. autoclass:: bloodsword.abstract.Score 
-    :members:
-    
-Character
+
+Factories
 ---------
 
-.. autoclass:: bloodsword.abstract.Character
-    :members:
-    
-.. autoclass:: bloodsword.abstract.Factory
+.. automodule:: bloodsword.domain.factories
     :members:
 
+Repositories
+------------
 
-Data Providers
---------------
-
-.. autoclass:: bloodsword.abstract.AdvDataProvider
+.. automodule:: bloodsword.domain.repositories    
     :members:
-    
