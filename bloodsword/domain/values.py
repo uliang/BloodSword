@@ -47,7 +47,7 @@ class Dice(ABC):
     Subclass to provide logic for Dice object.
     """
     _n: int
-    _n_faces: int
+    _n_faces: int = 6
     _modifier: Optional[int] = None
 
     @abstractclassmethod
