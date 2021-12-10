@@ -33,19 +33,20 @@ class Vector:
     @abstractproperty
     def coef_x(self) -> int: 
         """
-        :return: Returns ``True`` if ``to`` position is on square away in the cardinal directions and ``False`` otherwise.
-        :rtype: bool
+        Decompose v = ae1 + be2 and return a. 
+        """ 
+    
+    @abstractproperty
+    def coef_y(self) -> int: 
         """
-
-    @property
-    def square(self) -> Square:
+        Decompose v = ae1 + be2 and return b.
         """
-        Denotes the type of square the coordinates are referencing."""
-        return self._square_type
-
-    @square.setter
-    def square(self, value: Square):
-        self._square_type = value
+    
+    @abstractproperty
+    def max_coef_xy(self) -> int: 
+        """
+        Returns the larger of the two coefficients of v. 
+        """
 
 
 @dataclass(frozen=True)
