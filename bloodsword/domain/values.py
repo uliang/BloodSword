@@ -137,21 +137,17 @@ class Score(ABC):
     def __repr__(self) -> str:
         return repr(self._value)
 
+    @abstractmethod
     def __add__(self, value: Score):
-        a = self._increment(value)
-        return Score(a, self._initial_value)
+        ...
 
+    @abstractmethod        
     def __sub__(self, value: Score):
-        return Score(max(0, self._value - value._value), self._initial_value)
+        ...
 
+    @abstractmethod
     def __mul__(self, value: int):
-        return Score(self._data*value, self._initial_value)
-
-    def __div__(self, value: int):
-        """
-        Results are always rounded down. 
-        """
-        return Score(floor(self._value/value), self._initial_value)
+        ...
 
     @abstractmethod
     def _increment(self, value: Score) -> int:
@@ -159,3 +155,5 @@ class Score(ABC):
         Override this method to implement special rules for incrementing the
         attribute. 
         """
+    def __div__(self, value: int):
+        ...
