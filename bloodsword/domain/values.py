@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from abc import ABC, abstractclassmethod, abstractmethod
+from abc import ABC, abstractclassmethod, abstractmethod, abstractproperty
 from dataclasses import dataclass, field
 from math import floor
 from typing import Optional
@@ -9,22 +9,29 @@ from .enumeration import Square
 
 
 @dataclass
-class Position:
+class Vector:
     """
-    Position on a tactical map. 
+    Representation of a 2d vector. 
 
     We follow the convention where the origin is located at the top left corner
     of the map. 
     """
-    x: int = 0
-    y: int = 0
-
-    _square_type: Square = field(default=Square.GRID, init=False)
+    _x: int = 0
+    _y: int = 0
 
     def __repr__(self):
         return repr((self.x, self.y))
 
-    def is_adjacent(self, to: Position) -> bool:
+    @abstractmethod
+    def __add__(self, vec: Vector) -> Vector: 
+        ... 
+
+    @abstractmethod
+    def __sub__(self, vec: Vector) -> Vector: 
+        ... 
+
+    @abstractproperty
+    def coef_x(self) -> int: 
         """
         :return: Returns ``True`` if ``to`` position is on square away in the cardinal directions and ``False`` otherwise.
         :rtype: bool
